@@ -1,0 +1,42 @@
+<div *ngIf="!peliculas">
+    <img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+</div>
+  
+<ng-container *ngIf="peliculas">
+  <div class="peliculas-contenedor">
+    <div *ngFor="let pelicula of peliculas;let i=index" class="pelicula-contenedor">
+
+      <a>
+        <img [src]="pelicula.poster" alt="Poster" />
+      </a>
+      <p>
+        <a>{{pelicula.titulo}}</a>
+      </p>
+      <div>
+        <a mat-flat-button color="primary">Editar</a>
+        <a>
+          <button
+           mat-flat-button
+           color="warn"
+           type="button"
+          >
+             Borrar
+          </button>
+        </a>
+      </div>
+
+
+ <!--
+      <div>Nro:{{i}}
+          <button  (click)="procesarRemover(i)"  >Remover</button>
+      </div>
+      <div>Titulo:{{pelicula.titulo|uppercase}}</div>
+      <div>Fecha:{{pelicula.fecha|date:"dd/MMM/yyyy"}}</div>
+      <div>Precio:{{pelicula.Precio|currency}}</div>
+-->     
+
+
+    </div>
+
+</div>
+</ng-container>

@@ -1,0 +1,51 @@
+<form (submit)="guardarCambios()"  [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Titulo</mat-label>
+        <input formControlName="titulo" matInput/>
+        <mat-error>Titulo es requerido</mat-error>        
+      </mat-form-field>    
+
+      <div class="contenedor-checkbox">
+         <mat-checkbox formControlName="enCines"  >En Cines</mat-checkbox>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Trailer</mat-label>
+        <input formControlName="trailer" matInput/>
+      </mat-form-field>  
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha de Lanzamiento</mat-label>
+        <input
+          formControlName="fechaLanzamiento"
+          matInput [matDatepicker]="picker"
+         />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Resumen</mat-label>
+        <input formControlName="resumen" matInput/>
+      </mat-form-field> 
+
+      <mat-form-field appearance="outline">
+        <mat-label>Poster</mat-label>
+        <input formControlName="poster" matInput/>
+      </mat-form-field>    
+      
+      <app-selector-generos></app-selector-generos>
+
+
+      <div>        
+        <button mat-flat-button color="primary" [disabled]="form.invalid" >
+            Guardar Cambios
+        </button>
+        <a mat-stroked-button routerLink="/actores">
+            Cancelar
+        </a>
+      </div>
+</form>
+
+
